@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
     optimizer = optim.Adam(vae.parameters(), lr=0.0001)
     l = None
-    for epoch in range(30):
+    for epoch in range(10):
         for i, data in enumerate(dataloader, 0):
             inputs, classes = data
             inputs, classes = Variable(inputs.resize_(batch_size, input_dim))  , Variable(classes) 
@@ -107,6 +107,4 @@ if __name__ == '__main__':
         print(epoch, loss.data )
 
     plt.imshow(vae(inputs).data[0].numpy().reshape(28, 28), cmap='gray')
-    plt.show(block=True)
-    plt.imshow(inputs.data[0].numpy().reshape(28, 28), cmap='gray')
-    plt.show(block=True)
+    plt.show(block=True) 
